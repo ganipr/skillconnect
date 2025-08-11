@@ -1,2 +1,2 @@
 # skillconnect
-demo project for a skill connect a online platform
+demo project for a skill connect an online platform
