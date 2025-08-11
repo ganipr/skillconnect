@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education Innovation Forum | ConferenceConnect</title>
+    <!-- Include the same CSS as tech-summit.html -->
+    <style>
+               /* Global Styles - Consistent with Homepage */
+               * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header Styles - Consistent with Homepage */
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .logo span {
+            color: #3498db;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #3498db;
+        }
+        
+        /* Conference Hero Section */
+        .conference-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 80px 0;
+        }
+        
+        .conference-hero h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+        
+        .conference-hero .date-location {
+            font-size: 20px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .conference-hero .date-location span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        /* Conference Details Section */
+        .conference-details {
+            padding: 60px 0;
+        }
+        
+        .details-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+        
+        @media (max-width: 768px) {
+            .details-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .conference-content h2 {
+            font-size: 28px;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #3498db;
+        }
+        
+        .conference-content h3 {
+            font-size: 22px;
+            color: #2c3e50;
+            margin: 25px 0 15px;
+        }
+        
+        .conference-content p {
+            margin-bottom: 15px;
+        }
+        
+        .conference-content ul {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+        
+        /* Sidebar - Abstract & Registration */
+        .conference-sidebar {
+            background-color: white;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            height: fit-content;
+        }
+        
+        .sidebar-section {
+            margin-bottom: 30px;
+        }
+        
+        .sidebar-section h3 {
+            font-size: 20px;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        /* Abstract Submission Form */
+        .abstract-form .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .abstract-form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        
+        .abstract-form input[type="text"],
+        .abstract-form input[type="email"],
+        .abstract-form textarea,
+        .abstract-form select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        
+        .abstract-form textarea {
+            height: 120px;
+            resize: vertical;
+        }
+        
+        .abstract-form button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+        
+        .abstract-form button:hover {
+            background-color: #2980b9;
+        }
+        
+        /* Pricing Section */
+        .pricing-box {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .price {
+            font-size: 36px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin: 15px 0;
+        }
+        
+        .price span {
+            font-size: 16px;
+            font-weight: normal;
+            color: #7f8c8d;
+        }
+        
+        .price-features {
+            list-style: none;
+            margin: 20px 0;
+        }
+        
+        .price-features li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .btn-pay {
+            display: inline-block;
+            background-color: #27ae60;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            width: 100%;
+            text-align: center;
+        }
+        
+        .btn-pay:hover {
+            background-color: #219653;
+        }
+        
+        /* Footer - Consistent with Homepage */
+        footer {
+            background-color: #34495e;
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-col h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #3498db;
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-col ul li a {
+            color: #ecf0f1;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-col ul li a:hover {
+            color: #3498db;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #bdc3c7;
+            font-size: 14px;
+        }
+
+
+        
+        /* Additional countdown styles */
+        .conference-countdown {
+            background-color: #2c3e50;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            text-align: center;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 24px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header - Consistent with Homepage -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">Conference<span>Connect</span></div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">Meetings</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Conference Hero Section -->
+    <section class="conference-hero">
+        <div class="container">
+            <h1>Education Innovation Forum 2026</h1>
+            <div class="date-location">
+                <span><i class="far fa-calendar-alt"></i> Jan 15-17, 2026</span>
+                <span><i class="fas fa-map-marker-alt"></i> Helsinki, Finland</span>
+            </div>
+            <p>Shaping the future of education through technology and pedagogical innovation</p>
+            <div class="conference-countdown" id="countdown"></div>
+        </div>
+    </section>
+    
+    <!-- Conference Details Section -->
+    <section class="conference-details">
+        <div class="container details-container">
+            <div class="conference-content">
+                <h2>About the Forum</h2>
+                <p>The Education Innovation Forum is a global gathering of educators, technologists, policymakers, and thought leaders committed to transforming education for the 21st century. This year's focus will be on equitable access to quality education, the role of AI in learning, and innovative pedagogical approaches.</p>
+                
+                <h3>Forum Themes</h3>
+                <ul>
+                    <li>Artificial Intelligence in Education</li>
+                    <li>Personalized and Adaptive Learning Systems</li>
+                    <li>Digital Equity and Access to Education</li>
+                    <li>Future Skills and Workforce Development</li>
+                    <li>Immersive Learning with AR/VR</li>
+                    <li>Teacher Professional Development in the Digital Age</li>
+                </ul>
+                
+                <h3>Distinguished Speakers</h3>
+                <p>We're proud to feature these education innovators:</p>
+                <ul>
+                    <li>Dr. Pasi Sahlberg - Education reform expert, author</li>
+                    <li>Maya Bialik - Founder, Questioning Education</li>
+                    <li>Prof. Sugata Mitra - Creator of the "Hole in the Wall" experiment</li>
+                    <li>Sal Khan - Founder of Khan Academy</li>
+                </ul>
+                
+                <h3>Who Should Attend</h3>
+                <p>This forum is designed for:</p>
+                <ul>
+                    <li>Educators and school administrators</li>
+                    <li>Education technology developers</li>
+                    <li>Policy makers in education</li>
+                    <li>Curriculum designers</li>
+                    <li>Researchers in education and pedagogy</li>
+                    <li>EdTech entrepreneurs and investors</li>
+                </ul>
+            </div>
+            
+            <!-- Sidebar with Abstract and Registration -->
+            <div class="conference-sidebar">
+                <div class="sidebar-section">
+                    <h3>Submit Your Abstract</h3>
+                    <form class="abstract-form">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="affiliation">Affiliation</label>
+                            <input type="text" id="affiliation" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="topic">Presentation Topic</label>
+                            <select id="topic" required>
+                                <option value="">Select a topic</option>
+                                <option value="healthcare">AI in Healthcare</option>
+                                <option value="climate">ML for Climate Change</option>
+                                <option value="ethics">Ethical AI</option>
+                                <option value="nlp">Natural Language Processing</option>
+                                <option value="vision">Computer Vision</option>
+                                <option value="business">AI for Business</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="abstract">Abstract (300 words max)</label>
+                            <textarea id="abstract" required></textarea>
+                        </div>
+                        <button type="submit">Submit Abstract</button>
+                    </form>
+                </div>
+                
+                <div class="sidebar-section">
+                    <h3>Registration</h3>
+                    <div class="pricing-box">
+                        <h4>Forum Pass</h4>
+                        <div class="price">$349 <span>+ taxes</span></div>
+                        <ul class="price-features">
+                            <li>Access to all keynotes and breakout sessions</li>
+                            <li>Digital resource package</li>
+                            <li>Daily lunch and coffee breaks</li>
+                            <li>Hands-on workshop participation</li>
+                            <li>Access to forum recordings for 3 months</li>
+                        </ul>
+                        <a href="#" class="btn-pay">Register Now</a>
+                    </div>
+                </div>
+                
+                <div class="sidebar-section">
+                    <h3>Important Dates</h3>
+                    <ul>
+                        <li><strong>Proposal submission:</strong> Nov 1, 2025</li>
+                        <li><strong>Early bird registration:</strong> Oct 15, 2025</li>
+                        <li><strong>Regular registration:</strong> Dec 20, 2025</li>
+                        <li><strong>Forum dates:</strong> Jan 15-17, 2026</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer - Consistent with Homepage -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>ConferenceConnect</h3>
+                    <p>Bridging the gap between knowledge seekers and providers through meaningful conference connections.</p>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#">Meetings</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li>Email: info@conferenceconnect.com</li>
+                        <li>Phone: +1 (555) 123-4567</li>
+                        <li>Address: 123 Academic Way, Boston, MA</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 ConferenceConnect. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Countdown to Jan 15, 2026
+        function updateCountdown() {
+            const endDate = new Date('Jan 15, 2026 09:00:00').getTime();
+            const now = new Date().getTime();
+            const diff = endDate - now;
+            
+            if (diff <= 0) {
+                document.getElementById('countdown').innerHTML = "Forum is live!";
+                return;
+            }
+            
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            
+            document.getElementById('countdown').innerHTML = 
+                `Countdown: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+        }
+        
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+    </script>
+</body>
+</html>

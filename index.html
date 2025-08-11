@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conference Connect - Connecting Minds</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .logo span {
+            color: #3498db;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #3498db;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1431540015161-0bf868a2d407?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 100px 0;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #2980b9;
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            color: #2c3e50;
+        }
+        
+        .section-title p {
+            color: #7f8c8d;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .feature-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .feature-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .feature-card:hover .feature-img img {
+            transform: scale(1.1);
+        }
+        
+        .feature-content {
+            padding: 25px;
+        }
+        
+        .feature-content h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+        
+        /* Mission/Vision Section */
+        .mission-vision {
+            background-color: #2c3e50;
+            color: white;
+            padding: 80px 0;
+        }
+        
+        .mv-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .mv-box {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 8px;
+        }
+        
+        .mv-box h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #3498db;
+        }
+        
+        /* Upcoming Conferences */
+        .upcoming {
+            padding: 80px 0;
+        }
+        
+        .conference-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .conference-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .conference-date {
+            background-color: #3498db;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        .conference-content {
+            padding: 20px;
+        }
+        
+        .conference-content h3 {
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+        
+        .conference-content p {
+            color: #7f8c8d;
+            margin-bottom: 15px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #34495e;
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-col h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #3498db;
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-col ul li a {
+            color: #ecf0f1;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-col ul li a:hover {
+            color: #3498db;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #bdc3c7;
+            font-size: 14px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+            }
+            
+            nav ul li {
+                margin-left: 15px;
+                margin-right: 15px;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">Conference<span>Connect</span></div>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Meetings</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Connecting Professionals Across Disciplines</h1>
+            <p>Join our platform to discover, participate, and organize academic and professional conferences worldwide.</p>
+            <a href="#" class="btn">Explore Upcoming Conferences</a>
+        </div>
+    </section>
+    
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose ConferenceConnect?</h2>
+                <p>Our platform bridges the gap between knowledge seekers and knowledge providers across various disciplines.</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-img">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Networking">
+                    </div>
+                    <div class="feature-content">
+                        <h3>Networking Opportunities</h3>
+                        <p>Connect with professionals, lecturers, and students from around the world in your field of interest.</p>
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-img">
+                        <img src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Learning">
+                    </div>
+                    <div class="feature-content">
+                        <h3>Diverse Learning</h3>
+                        <p>Access conferences across multiple disciplines to broaden your knowledge and perspective.</p>
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-img">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Collaboration">
+                    </div>
+                    <div class="feature-content">
+                        <h3>Collaboration Platform</h3>
+                        <p>Find potential collaborators for research projects and academic papers across institutions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Mission/Vision Section -->
+    <section class="mission-vision">
+        <div class="container">
+            <div class="mv-container">
+                <div class="mv-box">
+                    <h3>Our Mission</h3>
+                    <p>To create a global platform that democratizes access to academic and professional knowledge by connecting thinkers, educators, and learners across geographical and disciplinary boundaries.</p>
+                </div>
+                
+                <div class="mv-box">
+                    <h3>Our Vision</h3>
+                    <p>To become the world's leading conference connection platform that fosters interdisciplinary collaboration and accelerates the dissemination of innovative ideas across all fields of study.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Upcoming Conferences -->
+    <section class="upcoming">
+        <div class="container">
+            <div class="section-title">
+                <h2>Upcoming Conferences</h2>
+                <p>Discover the latest conferences in your field of interest</p>
+            </div>
+            
+            <div class="conference-grid">
+    <!-- Tech Summit Card -->
+    <div class="conference-grid">
+        <!-- Tech Summit Card -->
+        <div class="conference-card">
+            <div class="conference-date">Nov 10-12, 2025</div>
+            <div class="conference-content">
+                <!-- <h3><a href="tech-summit.html">International Tech Summit</a></h3> -->
+                <h3>International Tech Summit</h3>
+                <p>Exploring the future of artificial intelligence and machine learning applications.</p>
+                <div class="countdown" id="tech-countdown"></div>
+                <a href="tech_summit.html" class="btn">Learn More</a>
+            </div>
+        </div>
+        
+        <!-- Health Symposium Card -->
+        <div class="conference-card">
+            <div class="conference-date">Dec 5-7, 2025</div>
+            <div class="conference-content">
+                <!-- <h3><a href="health_symposium.html">Global Health Symposium</a></h3> -->
+                <h3>Global Health Symposium</h3>
+                <p>Addressing contemporary challenges in public health and medical research.</p>
+                <div class="countdown" id="health-countdown"></div>
+                <a href="health_symposium.html" class="btn">Learn More</a>
+            </div>
+        </div>
+        
+        <!-- Education Forum Card -->
+        <div class="conference-card">
+            <div class="conference-date">Jan 15-17, 2026</div>
+            <div class="conference-content">
+                <!-- <h3><a href="education_forum.html">Education Innovation Forum</a></h3> -->
+                <h3>Education Innovation Forum</h3>
+                <p>Shaping the future of education through technology and pedagogical innovation.</p>
+                <div class="countdown" id="education-countdown"></div>
+                <a href="education_forum.html" class="btn">Learn More</a>
+            </div>
+        </div>
+    </div>    
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>ConferenceConnect</h3>
+                    <p>Bridging the gap between knowledge seekers and providers through meaningful conference connections.</p>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Meetings</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li>Email: info@conferenceconnect.com</li>
+                        <li>Phone: +1 (555) 123-4567</li>
+                        <li>Address: 123 Academic Way, Boston, MA</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 ConferenceConnect. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+
+
+
+<!-- <script>
+    // Countdown function
+    function updateCountdown(endDate, elementId) {
+        const now = new Date();
+        const diff = endDate - now;
+        
+        if (diff <= 0) {
+            document.getElementById(elementId).innerHTML = "Conference is live!";
+            return;
+        }
+        
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+        
+        document.getElementById(elementId).innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }
+
+    // Set conference dates and initialize countdowns
+    const techDate = new Date('Nov 10, 2025 09:00:00');
+    const healthDate = new Date('Dec 5, 2025 09:00:00');
+    const educationDate = new Date('Jan 15, 2026 09:00:00');
+    
+    // Update immediately
+    updateCountdown(techDate, 'tech-countdown');
+    updateCountdown(healthDate, 'health-countdown');
+    updateCountdown(educationDate, 'education-countdown');
+    
+    // Update every second
+    setInterval(() => {
+        updateCountdown(techDate, 'tech-countdown');
+        updateCountdown(healthDate, 'health-countdown');
+        updateCountdown(educationDate, 'education-countdown');
+    }, 1000);
+</script>
+
+<style>
+    .countdown {
+        font-family: 'Courier New', monospace;
+        font-weight: bold;
+        color: #3498db;
+        margin: 10px 0;
+        font-size: 16px;
+    }
+</style>
+ -->
