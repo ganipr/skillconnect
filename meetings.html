@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upcoming Meetings | ConferenceConnect</title>
+    <style>
+            /* Global Styles */
+            * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .logo span {
+            color: #3498db;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #3498db;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1431540015161-0bf868a2d407?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 100px 0;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #2980b9;
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            color: #2c3e50;
+        }
+        
+        .section-title p {
+            color: #7f8c8d;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .feature-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .feature-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .feature-card:hover .feature-img img {
+            transform: scale(1.1);
+        }
+        
+        .feature-content {
+            padding: 25px;
+        }
+        
+        .feature-content h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+        
+        /* Mission/Vision Section */
+        .mission-vision {
+            background-color: #2c3e50;
+            color: white;
+            padding: 80px 0;
+        }
+        
+        .mv-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .mv-box {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 8px;
+        }
+        
+        .mv-box h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #3498db;
+        }
+        
+        /* Upcoming Conferences */
+        .upcoming {
+            padding: 80px 0;
+        }
+        
+        .conference-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .conference-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .conference-date {
+            background-color: #3498db;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        .conference-content {
+            padding: 20px;
+        }
+        
+        .conference-content h3 {
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+        
+        .conference-content p {
+            color: #7f8c8d;
+            margin-bottom: 15px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #34495e;
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-col h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #3498db;
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-col ul li a {
+            color: #ecf0f1;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-col ul li a:hover {
+            color: #3498db;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #bdc3c7;
+            font-size: 14px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+            }
+            
+            nav ul li {
+                margin-left: 15px;
+                margin-right: 15px;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+        }
+        
+        /* Additional styles for meetings page */
+        .meetings-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 100px 0;
+        }
+        
+        .subject-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            padding: 60px 0;
+        }
+        
+        .subject-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .subject-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .subject-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .subject-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .subject-card:hover .subject-img img {
+            transform: scale(1.1);
+        }
+        
+        .subject-content {
+            padding: 25px;
+        }
+        
+        .subject-date {
+            color: #3498db;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .subject-content h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+        
+        .subject-content p {
+            color: #7f8c8d;
+            margin-bottom: 15px;
+        }
+        
+        .subject-meta {
+            display: flex;
+            justify-content: space-between;
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header - Consistent with other pages -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">Conference<span>Connect</span></div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="meetings.html">Meetings</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Meetings Hero Section -->
+    <section class="meetings-hero">
+        <div class="container">
+            <h1>Upcoming Subject Meetings</h1>
+            <p>Browse our upcoming meetings by subject area and join the conversation</p>
+        </div>
+    </section>
+    
+    <!-- Subjects Grid -->
+    <section class="container">
+        <div class="subject-grid">
+            <!-- Subject 1 -->
+            <div class="subject-card">
+                <div class="subject-img">
+                    <img src="https://images.unsplash.com/photo-1629904853893-c2c8981a1dc5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Artificial Intelligence">
+                </div>
+                <div class="subject-content">
+                    <div class="subject-date">Nov 15, 2025 | 10:00 AM EST</div>
+                    <h3>Artificial Intelligence Advancements</h3>
+                    <p>Exploring the latest breakthroughs in AI research and applications across industries.</p>
+                    <div class="subject-meta">
+                        <span>Virtual Meeting</span>
+                        <span>120 Participants</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Subject 2 -->
+            <div class="subject-card">
+                <div class="subject-img">
+                    <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Climate Science">
+                </div>
+                <div class="subject-content">
+                    <div class="subject-date">Nov 22, 2025 | 2:00 PM GMT</div>
+                    <h3>Climate Science & Sustainability</h3>
+                    <p>Discussing innovative solutions for climate change mitigation and adaptation.</p>
+                    <div class="subject-meta">
+                        <span>London, UK</span>
+                        <span>85 Participants</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Subject 3 -->
+            <div class="subject-card">
+                <div class="subject-img">
+                    <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Biomedical Research">
+                </div>
+                <div class="subject-content">
+                    <div class="subject-date">Dec 3, 2025 | 9:00 AM PST</div>
+                    <h3>Biomedical Research Innovations</h3>
+                    <p>Cutting-edge developments in medical research and therapeutic approaches.</p>
+                    <div class="subject-meta">
+                        <span>San Francisco, CA</span>
+                        <span>150 Participants</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Subject 4 -->
+            <div class="subject-card">
+                <div class="subject-img">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Data Science">
+                </div>
+                <div class="subject-content">
+                    <div class="subject-date">Dec 10, 2025 | 11:00 AM EST</div>
+                    <h3>Data Science & Analytics</h3>
+                    <p>Exploring big data applications and advanced analytical techniques.</p>
+                    <div class="subject-meta">
+                        <span>Virtual Meeting</span>
+                        <span>200 Participants</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Subject 5 -->
+            <div class="subject-card">
+                <div class="subject-img">
+                    <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Education Technology">
+                </div>
+                <div class="subject-content">
+                    <div class="subject-date">Jan 12, 2026 | 3:00 PM CET</div>
+                    <h3>Education Technology Trends</h3>
+                    <p>Revolutionizing learning through innovative technologies and methodologies.</p>
+                    <div class="subject-meta">
+                        <span>Berlin, Germany</span>
+                        <span>90 Participants</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Subject 6 -->
+            <div class="subject-card">
+                <div class="subject-img">
+                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Business Innovation">
+                </div>
+                <div class="subject-content">
+                    <div class="subject-date">Jan 25, 2026 | 1:00 PM EST</div>
+                    <h3>Business Innovation Strategies</h3>
+                    <p>Transforming organizations through disruptive thinking and digital transformation.</p>
+                    <div class="subject-meta">
+                        <span>New York, NY</span>
+                        <span>110 Participants</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Subject 7 -->
+            <div class="subject-card">
+                <div class="subject-img">
+                    <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Renewable Energy">
+                </div>
+                <div class="subject-content">
+                    <div class="subject-date">Feb 8, 2026 | 10:00 AM GMT</div>
+                    <h3>Renewable Energy Solutions</h3>
+                    <p>Advancements in clean energy technologies and sustainable infrastructure.</p>
+                    <div class="subject-meta">
+                        <span>Virtual Meeting</span>
+                        <span>75 Participants</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Subject 8 -->
+            <div class="subject-card">
+                <div class="subject-img">
+                    <img src="https://images.unsplash.com/photo-1581094271901-8022df4466f9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Robotics">
+                </div>
+                <div class="subject-content">
+                    <div class="subject-date">Feb 20, 2026 | 4:00 PM JST</div>
+                    <h3>Robotics & Automation</h3>
+                    <p>The future of robotics in industry, healthcare, and daily life applications.</p>
+                    <div class="subject-meta">
+                        <span>Tokyo, Japan</span>
+                        <span>65 Participants</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Subject 9 -->
+            <div class="subject-card">
+                <div class="subject-img">
+                    <img src="https://images.unsplash.com/photo-1581093057305-1cb5a0ed9b7e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Neuroscience">
+                </div>
+                <div class="subject-content">
+                    <div class="subject-date">Mar 5, 2026 | 9:00 AM EST</div>
+                    <h3>Neuroscience Discoveries</h3>
+                    <p>Exploring the human brain and the latest findings in cognitive science.</p>
+                    <div class="subject-meta">
+                        <span>Boston, MA</span>
+                        <span>95 Participants</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer - Consistent with other pages -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>ConferenceConnect</h3>
+                    <p>Bridging the gap between knowledge seekers and providers through meaningful conference connections.</p>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="meetings.html">Meetings</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li>Email: info@conferenceconnect.com</li>
+                        <li>Phone: +1 (555) 123-4567</li>
+                        <li>Address: 123 Academic Way, Boston, MA</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 ConferenceConnect. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
